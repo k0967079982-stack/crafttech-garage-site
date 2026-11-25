@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>匠技車研 CraftTech Garage｜汽車故障專業診斷與技術維修（示例網站）</title>
+  <meta
+    name="description"
+    content="專治汽車故障缺乏維修技術的痛點！提供原廠級電腦診斷、示波器波形量測、底盤異音定位與車主技術救援裝備。（本網站為汽車維修店示例網站）"
+  />
+  <!-- Open Graph 社群分享預覽設定 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:title" content="匠技車研 CraftTech Garage｜專治汽車疑難雜症的技術維修品牌（示例）" />
+  <meta
+    property="og:description"
+    content="修車不再靠猜測換件！針對汽車故障缺乏維修技術痛點，以示波器實測與透明技術報告一次找出根因。"
+  />
+  <meta property="og:image" content="images/hero-garage.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至主要內容</a>
+
+  <!-- 限時活動橫幅 -->
+  <div class="promo-bar" role="region" aria-label="限時技術推廣活動">
+    <div class="container promo-bar__inner">
+      <div class="promo-bar__info">
+        <span class="badge badge--accent" id="promo-badge">限時活動</span>
+        <strong id="promo-title"></strong>
+        <span id="promo-desc" class="promo-bar__desc"></span>
+      </div>
+
+      <div class="promo-bar__actions">
+        <div class="countdown" id="promo-countdown" aria-live="off">
+          <span class="countdown__label">距離結束：</span>
+          <span class="countdown__unit"><strong id="cd-days">00</strong>天</span>
+          <span class="countdown__unit"><strong id="cd-hours">00</strong>時</span>
+          <span class="countdown__unit"><strong id="cd-minutes">00</strong>分</span>
+          <span class="countdown__unit"><strong id="cd-seconds">00</strong>秒</span>
+        </div>
+        <p class="promo-ended-msg" id="promo-ended-msg" hidden></p>
+
+        <div class="promo-code-group" id="promo-code-group">
+          <span class="promo-code-chip" id="promo-code-text">TECHFIX10</span>
+          <button type="button" class="btn btn--small btn--light" id="copy-promo-btn">
+            複製優惠碼
+          </button>
+        </div>
+        <span class="sr-feedback" id="promo-feedback" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 頁首與導覽列 -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="#hero" class="brand-logo" aria-label="匠技車研首頁">
+        <span class="brand-logo__mark" aria-hidden="true">CT</span>
+        <span class="brand-logo__text">
+          <strong id="brand-name-header">匠技車研 CraftTech Garage</strong>
+          <small>汽車技術診斷與精修（示例）</small>
+        </span>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="開啟導覽選單"
+      >
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
+        <span class="menu-toggle__bar" aria-hidden="true"></span>
+        <span class="menu-toggle__text">選單</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="主要導覽">
+        <ul class="site-nav__list">
+          <li><a href="#hero" class="site-nav__link">首頁</a></li>
+          <li><a href="#story" class="site-nav__link">品牌故事</a></li>
+          <li><a href="#catalog" class="site-nav__link">商品與服務</a></li>
+          <li>
+            <a href="#preorder" class="site-nav__link site-nav__link--cta">
+              預約清單 <span class="nav-count" id="nav-cart-count">0</span>
+            </a>
+          </li>
+          <li><a href="#reviews" class="site-nav__link">顧客評價</a></li>
+          <li><a href="#faq" class="site-nav__link">常見問題</a></li>
+          <li><a href="#contact" class="site-nav__link">聯絡我們</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- 首屏 Hero -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">示例品牌｜專為「汽車故障維修」打造</p>
+          <h1 id="hero-heading" class="hero__title">
+            修車不再盲猜換件，讓「缺乏維修技術」的風險歸零
+          </h1>
+          <p class="hero__subtitle" id="hero-subtitle">
+            針對「汽車故障缺乏維修技術」的痛點，我們結合原廠級電腦診斷、示波器波形實測與透明技術報告，精準鎖定故障根因，避免反覆花冤枉錢。
+          </p>
+          <ul class="hero__highlights">
+            <li>先實測、後報價：以數據與波形找出故障證據</li>
+            <li>全車系技術支援：專攻難解故障燈、間歇性熄火與異音</li>
+            <li>零話術溝通：白話講解加上透明分級維修建議</li>
+          </ul>
+          <div class="hero__actions">
+            <a href="#catalog" class="btn btn--primary">看商品與檢修方案</a>
+            <a href="#story" class="btn btn--outline-light">認識品牌</a>
+          </div>
+        </div>
+
+        <figure class="hero__media">
+          <img
+            src="images/hero-garage.jpg"
+            alt="現代化汽車技術診斷工位，展示電腦診斷設備與精修環境（示例圖）"
+            class="hero__image"
+            width="1280"
+            height="720"
+          />
+          <figcaption class="hero__caption">
+            高精度示波器與全系統診斷工位實景示意（示例圖片）
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 品牌故事 -->
+    <section class="section section--light" id="story" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">品牌故事（示例）</span>
+          <h2 id="story-heading">為什麼我們專注解決「汽車故障缺乏維修技術」？</h2>
+          <p class="section-lead">
+            許多車主遇過相同困境：車子亮故障燈、抖動或偶發熄火，換了三樣零件卻依然沒修好；或是完全不懂車，只能聽憑口頭推銷決定要不要大修。
+          </p>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card">
+            <span class="story-card__num" aria-hidden="true">01</span>
+            <h3>終結「只讀故障碼就換件」</h3>
+            <p>
+              故障碼只代表某個系統異常，並非零件本身一定壞掉。我們導入示波器、煙霧測漏與內視鏡驗證，在動手換件前先證明根因。（示例理念）
+            </p>
+          </article>
+
+          <article class="story-card">
+            <span class="story-card__num" aria-hidden="true">02</span>
+            <h3>把技術翻譯成車主聽得懂的語言</h3>
+            <p>
+              缺乏維修技術背景不代表只能被動挨宰。每份檢修皆附圖文與數據對比，標明「急迫安全」、「近期建議」與「可觀察」三級。（示例服務）
+            </p>
+          </article>
+
+          <article class="story-card">
+            <span class="story-card__num" aria-hidden="true">03</span>
+            <h3>從進廠精修到隨車技術防護</h3>
+            <p>
+              除了店內深度檢測項目，我們也精選車主必備隨車診斷與救援工具，讓車主在半路突發異常時也能掌握第一手數據。（示例產品線）
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 商品與服務型錄 -->
+    <section class="section section--surface" id="catalog" aria-labelledby="catalog-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">技術服務與裝備型錄（共 15 項示例商品）</span>
+          <h2 id="catalog-heading">精準檢修方案與車主技術裝備</h2>
+          <p class="section-lead">
+            可依分類篩選或輸入關鍵字即時搜尋，點擊「查看詳情」閱讀完整檢測流程，或直接加入預約清單試算優惠。
+          </p>
+        </div>
+
+        <!-- 搜尋與分類控制列 -->
+        <div class="catalog-controls">
+          <div class="search-box">
+            <label for="search-input" class="sr-only">搜尋商品或故障關鍵字</label>
+            <input
+              type="search"
+              id="search-input"
+              class="search-box__input"
+              placeholder="搜尋名稱或問題，例如：示波器、漏電、異音、OBD2..."
+              autocomplete="off"
+            />
+            <button type="button" class="btn btn--ghost btn--small" id="clear-search-btn" hidden>
+              清除搜尋
+            </button>
+          </div>
+
+          <div
+            class="category-filters"
+            id="category-filters"
+            role="group"
+            aria-label="商品分類篩選"
+          ></div>
+        </div>
+
+        <p class="catalog-status" id="catalog-status" role="status" aria-live="polite"></p>
+
+        <!-- 商品列表 -->
+        <div class="product-grid" id="product-grid"></div>
+
+        <!-- 查無結果提示 -->
+        <div class="empty-state" id="empty-state" hidden>
+          <h3>找不到符合條件的商品或檢修項目</h3>
+          <p>請嘗試更換搜尋關鍵字，或點選下方按鈕重設所有篩選條件。</p>
+          <button type="button" class="btn btn--primary" id="reset-filters-btn">
+            顯示全部 15 項商品
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 預購／預約清單與明細產生器 -->
+    <section class="section section--light" id="preorder" aria-labelledby="preorder-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">線上預估與預約單（本地儲存・免刷卡・示例）</span>
+          <h2 id="preorder-heading">我的預購／檢修預約清單</h2>
+          <p class="section-lead">
+            選單內容會自動保存在您的瀏覽器（localStorage）。填寫聯絡人暱稱後，即可複製明細或下載 .txt 檔，自行貼至品牌 LINE 或 IG 與技師確認時間。
+          </p>
+        </div>
+
+        <div class="preorder-layout">
+          <!-- 左側：購物車項目 -->
+          <div class="preorder-panel">
+            <div class="preorder-panel__head">
+              <h3>已選項目</h3>
+              <button type="button" class="btn btn--ghost btn--small" id="clear-cart-btn">
+                清空清單
+              </button>
+            </div>
+
+            <div id="cart-empty-msg" class="cart-empty">
+              <p>目前尚未加入任何檢修服務或裝備。</p>
+              <a href="#catalog" class="btn btn--outline-dark btn--small">前往商品型錄選購</a>
+            </div>
+
+            <ul class="cart-list" id="cart-list" aria-label="預購項目列表"></ul>
+
+            <!-- 金額試算 -->
+            <div class="cart-totals">
+              <div class="cart-totals__row">
+                <span>商品與檢修小計</span>
+                <strong id="subtotal-amount">NT$ 0</strong>
+              </div>
+              <div class="cart-totals__row cart-totals__row--discount">
+                <span id="discount-label">活動折扣（未套用）</span>
+                <strong id="discount-amount">- NT$ 0</strong>
+              </div>
+              <div class="cart-totals__row cart-totals__row--total">
+                <span>優惠後預估總金額</span>
+                <strong id="final-amount">NT$ 0</strong>
+              </div>
+
+              <div class="promo-apply-row">
+                <label for="cart-promo-input" class="sr-only">輸入優惠碼</label>
+                <input
+                  type="text"
+                  id="cart-promo-input"
+                  class="form-control"
+                  placeholder="輸入優惠碼（例如 TECHFIX10）"
+                />
+                <button type="button" class="btn btn--secondary btn--small" id="apply-promo-btn">
+                  套用優惠碼
+                </button>
+              </div>
+              <p class="form-hint" id="cart-promo-status" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <!-- 右側：聯絡表單與明細輸出 -->
+          <div class="preorder-panel">
+            <h3>聯絡資訊與明細輸出</h3>
+            <form id="preorder-form" novalidate>
+              <div class="form-group">
+                <label for="customer-nickname" class="form-label">
+                  聯絡人暱稱 <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="customer-nickname"
+                  class="form-control"
+                  placeholder="例如：台北小陳 / 王先生"
+                  maxlength="40"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="customer-note" class="form-label">
+                  車款年份／故障狀況備註（選填）
+                </label>
+                <textarea
+                  id="customer-note"
+                  class="form-control form-control--textarea"
+                  rows="3"
+                  maxlength="240"
+                  placeholder="例如：2019 Altis，冷車啟動抖動、引擎故障燈間歇亮起，希望週六上午檢修"
+                ></textarea>
+              </div>
+
+              <div class="alert-box" id="preorder-alert" role="alert" aria-live="polite" hidden></div>
+
+              <div class="summary-preview-wrap">
+                <span class="form-label">預約明細預覽（可複製後貼給 LINE / IG）：</span>
+                <pre class="summary-preview" id="summary-preview"></pre>
+              </div>
+
+              <div class="preorder-actions">
+                <button type="button" class="btn btn--primary" id="copy-summary-btn">
+                  複製明細
+                </button>
+                <button type="button" class="btn btn--outline-dark" id="download-txt-btn">
+                  下載 .txt
+                </button>
+              </div>
+              <p class="form-hint" id="export-feedback" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 顧客評價 -->
+    <section class="section section--surface" id="reviews" aria-labelledby="reviews-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">車主口碑（以下皆為示例評價）</span>
+          <h2 id="reviews-heading">不再被「缺乏維修技術」拖累的真實回饋</h2>
+          <p class="section-lead">以下評價內容皆為展示網站版型所建立之虛構示例。</p>
+        </div>
+        <div class="reviews-grid" id="reviews-grid"></div>
+      </div>
+    </section>
+
+    <!-- 常見問題 FAQ -->
+    <section class="section section--light" id="faq" aria-labelledby="faq-heading">
+      <div class="container container--narrow">
+        <div class="section-header">
+          <span class="section-tag">FAQ（示例問答）</span>
+          <h2 id="faq-heading">常見問題解答</h2>
+          <p class="section-lead">可使用 Tab 鍵切換問題，並按 Enter 或空白鍵展開／收合答案。</p>
+        </div>
+        <div class="faq-list" id="faq-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 聯絡資訊與頁尾 -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h2 class="footer-title" id="footer-brand-name">匠技車研 CraftTech Garage（示例品牌）</h2>
+        <p class="footer-desc">
+          專攻汽車疑難故障電腦診斷與技術檢修，替車主把關每一筆維修預算。網站全數資料、價格、圖片與評價均為展示用途之示例資料。
+        </p>
+      </div>
+
+      <div>
+        <h3 class="footer-subtitle">門市與聯絡資訊（示例）</h3>
+        <ul class="contact-list" id="contact-list"></ul>
+      </div>
+
+      <div>
+        <h3 class="footer-subtitle">快速導覽</h3>
+        <ul class="footer-links">
+          <li><a href="#hero">回到頂部</a></li>
+          <li><a href="#story">品牌故事</a></li>
+          <li><a href="#catalog">商品與服務</a></li>
+          <li><a href="#preorder">預約檢修清單</a></li>
+          <li><a href="#faq">常見問題</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom__inner">
+        <p>© 2026 匠技車研 CraftTech Garage（示例網站・純原生前端靜態架構）</p>
+        <p>本地資料運行・無後端・無金鑰</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 商品詳情彈窗 -->
+  <div class="modal" id="product-modal" hidden>
+    <div class="modal__backdrop" id="modal-backdrop"></div>
+    <div
+      class="modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-full-desc"
+      tabindex="-1"
+      id="modal-dialog"
+    >
+      <button
+        type="button"
+        class="modal__close"
+        id="modal-close-btn"
+        aria-label="關閉商品詳情視窗"
+      >
+        ✕
+      </button>
+
+      <div class="modal__body">
+        <div class="modal__media">
+          <img id="modal-image" src="" alt="" />
+        </div>
+        <div class="modal__content">
+          <span class="badge badge--dark" id="modal-category"></span>
+          <h2 class="modal__title" id="modal-title"></h2>
+          <p class="modal__price" id="modal-price"></p>
+          <p class="modal__short" id="modal-short-desc"></p>
+          <div class="modal__divider"></div>
+          <h3 class="modal__subheading">技術細節與項目說明</h3>
+          <p class="modal__desc" id="modal-full-desc"></p>
+          <div class="modal__actions">
+            <button type="button" class="btn btn--primary" id="modal-add-btn">
+              加入預購清單
+            </button>
+            <button type="button" class="btn btn--outline-dark" id="modal-close-secondary-btn">
+              返回型錄
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
